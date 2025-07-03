@@ -6,13 +6,13 @@ module.exports = {
   mode: "production",
   entry: "./src/js/index.js",
   output: {
-    filename: "main.js",
-    path: path.resolve(__dirname, "dist"),
+    filename: "js/main.js",
+    path: path.resolve(__dirname, "docs"),
   },
   devtool: "inline-source-map",
   devServer: {
     static: {
-      directory: path.join(__dirname, "dist"),
+      directory: path.join(__dirname, "docs"),
     },
     compress: true,
     port: 9000,
