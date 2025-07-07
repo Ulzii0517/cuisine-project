@@ -13,7 +13,7 @@ export default class Search {
       this.result = result.data.recipes;
       return result;
     } catch (error) {
-      alert("Error" + error);
+      console.log("Error" + error);
     }
   }
 }
