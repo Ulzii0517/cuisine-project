@@ -1,5 +1,5 @@
 import Search from "./model/search";
-import { elements } from "./view/base";
+import { elements, renderLoader, clearLoader } from "./view/base";
 import * as searchView from "./view/searchView";
 
 let search = new Search("pasta");
@@ -23,9 +23,12 @@ const controlSearch = async () => {
     // 3) Hailt hiihed zoriulj delgetsiig UI beltgene.
     searchView.clearSearchKey();
     searchView.clearSearchResult();
+    ////loading/////
+    renderLoader(elements.searchResDiv);
     // 4) Hailtiig guitsetgene.
     await state.search.doSearch();
     // 5) Hailtiin ur dung delgetsend uzuulne.
+    clearLoader();
     if (state.search.result === undefined)
       alert("Sorry, search result not found");
     else searchView.renderRecipes(state.search.result);
@@ -36,3 +39,4 @@ elements.searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   controlSearch();
 });
+v;
