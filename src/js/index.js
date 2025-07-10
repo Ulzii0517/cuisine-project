@@ -1,3 +1,4 @@
+import Recipe from "./model/recipe";
 import Search from "./model/search";
 import { elements, renderLoader, clearLoader } from "./view/base";
 import * as searchView from "./view/searchView";
@@ -39,4 +40,16 @@ elements.searchForm.addEventListener("submit", (e) => {
   e.preventDefault();
   controlSearch();
 });
-v;
+
+elements.pageButtons.addEventListener("click", (e) => {
+  const btn = e.target.closest(".btn-inline");
+
+  if (btn) {
+    const gotoPageNumber = parseInt(btn.dataset.goto, 10);
+    searchView.clearSearchResult();
+    searchView.renderRecipes(state.search.result, gotoPageNumber);
+  }
+});
+
+const r = new Recipe(47746);
+r.getRecipe();
